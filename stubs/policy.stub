@@ -1,0 +1,47 @@
+<?php
+
+namespace {{ namespace }};
+
+use {{ namespacedModel }};
+use {{ namespacedUserModel }};
+use Illuminate\Auth\Access\HandlesAuthorization;
+
+class {{ class }}
+{
+    use HandlesAuthorization;
+
+    public function viewAny({{ user }} $user): mixed
+    {
+        //
+    }
+
+    public function view({{ user }} $user, {{ model }} ${{ modelVariable }}): mixed
+    {
+        //
+    }
+
+    public function create({{ user }} $user): mixed
+    {
+        //
+    }
+
+    public function update({{ user }} $user, {{ model }} ${{ modelVariable }}): mixed
+    {
+        //
+    }
+
+    public function delete({{ user }} $user, {{ model }} ${{ modelVariable }}): mixed
+    {
+        //
+    }
+
+    public function restore({{ user }} $user, {{ model }} ${{ modelVariable }}): mixed
+    {
+        //
+    }
+
+    public function forceDelete({{ user }} $user, {{ model }} ${{ modelVariable }}): mixed
+    {
+        //
+    }
+}
