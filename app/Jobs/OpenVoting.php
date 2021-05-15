@@ -23,9 +23,11 @@ class OpenVoting implements ShouldQueue
 
     public function handle(Twilio $twilio): void
     {
+        $max = config('eurovision.voting.max');
+
         $message = <<<EOD
 Voting for {$this->country->name} is now open!
-Reply with a number from 0 - 10 to cast your vote.
+Reply with a number from 0 - {$max} to cast your vote.
 EOD;
 
         $twilio->sendSms(

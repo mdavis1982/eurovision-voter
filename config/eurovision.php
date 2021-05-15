@@ -16,4 +16,8 @@ return [
             'description' => 'Vote on the Eurovision Song Contest - by SMS!',
         ],
     ],
+
+    'voting' => [
+        'max' => 30,
+    ],
 ];

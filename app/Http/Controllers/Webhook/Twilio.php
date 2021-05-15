@@ -29,8 +29,8 @@ class Twilio extends Controller
             return $twilio->sendSms($request->From, 'Sorry. Voting is currently closed. :-(');
         }
 
-        if (! is_numeric($request->Body) || (int) $request->Body < 0 || (int) $request->Body > 10) {
-            return $twilio->sendSms($request->From, 'You must vote with a value between 0 - 10. Try again.');
+        if (! is_numeric($request->Body) || (int) $request->Body < 0 || (int) $request->Body > config('eurovision.voting.max')) {
+            return $twilio->sendSms($request->From, sprintf('You must vote with a value between 0 - %d. Try again.', config('eurovision.voting.max')));
         }
 
         $country = Country::currentlyVoting()->first();
