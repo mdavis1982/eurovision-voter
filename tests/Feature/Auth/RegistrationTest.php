@@ -14,6 +14,13 @@ class RegistrationTest extends TestCase
 {
     use RefreshDatabase;
 
+    public function setUp(): void
+    {
+        parent::setUp();
+
+        $this->markTestSkipped('Registration has been disabled.');
+    }
+
     /** @test */
     public function registration_screen_can_be_rendered()
     {

@@ -21,7 +21,7 @@
 
         <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
             <div class="flex justify-center text-4xl">
-                Eurovision Voter
+                <img src="/images/eurovision.png" alt="Eurovision Song Contest Logo - Rotterdam 2021">
             </div>
         </div>
     </div>

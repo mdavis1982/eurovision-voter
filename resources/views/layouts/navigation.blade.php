@@ -15,6 +15,14 @@
                     <x-nav-link :href="route('account.dashboard')" :active="request()->routeIs('account.dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
+
+                    <x-nav-link :href="route('account.voters.index')" :active="request()->routeIs('account.voters.*')">
+                        {{ __('Voters') }}
+                    </x-nav-link>
+
+                    <x-nav-link :href="''" :active="request()->routeIs('account.countries.*')">
+                        {{ __('Countries') }}
+                    </x-nav-link>
                 </div>
             </div>
 
@@ -65,6 +73,14 @@
         <div class="pt-2 pb-3 space-y-1">
             <x-responsive-nav-link :href="route('account.dashboard')" :active="request()->routeIs('account.dashboard')">
                 {{ __('Dashboard') }}
+            </x-responsive-nav-link>
+
+            <x-responsive-nav-link :href="route('account.voters.index')" :active="request()->routeIs('account.voters.*')">
+                {{ __('Voters') }}
+            </x-responsive-nav-link>
+
+            <x-responsive-nav-link :href="''" :active="request()->routeIs('account.countries.*')">
+                {{ __('Countries') }}
             </x-responsive-nav-link>
         </div>
 
