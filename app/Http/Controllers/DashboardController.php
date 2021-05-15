@@ -17,8 +17,11 @@ class DashboardController extends Controller
             ->get()
         ;
 
+        $activeCountry = Country::currentlyVoting()->first();
+
         return view('dashboard', [
             'countries' => $countries,
+            'activeCountry' => $activeCountry,
         ]);
     }
 }

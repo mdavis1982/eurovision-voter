@@ -14,6 +14,32 @@
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            @if ($activeCountry)
+                <h2 class="font-semibold text-xl text-gray-800 leading-tight mb-4">Active Country</h2>
+                <div class="bg-white shadow overflow-hidden sm:rounded-lg mb-16">
+                    <a href="{{ route('account.countries.show', $activeCountry) }}" class="block hover:bg-gray-50">
+                        <div class="px-4 py-4 sm:px-6">
+                            <div class="flex items-center justify-between">
+                                <div class="flex flex-col space-y-1">
+                                    <p class="text-lg font-medium text-indigo-600 truncate inline-flex space-x-2">
+                                        <span>{{ $activeCountry->flag }}</span>
+                                        <span>{{ $activeCountry->name }}</span>
+                                    </p>
+                                    <p class="text-sm font-medium text-gray-600 truncate">
+                                        <span class="font-bold">"{{ $activeCountry->song_title }}"</span> by <span class="font-bold">{{ $activeCountry->artist }}</span>
+                                    </p>
+                                </div>
+                                <div class="ml-2 flex-shrink-0 flex">
+                                    <p class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                                        Currently Voting
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            @endif
+
             <h2 class="font-semibold text-xl text-gray-800 leading-tight mb-4">Results</h2>
             @if ($countries->isNotEmpty())
                 <div class="bg-white shadow overflow-hidden sm:rounded-lg">
