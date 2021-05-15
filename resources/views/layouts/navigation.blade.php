@@ -20,7 +20,7 @@
                         {{ __('Voters') }}
                     </x-nav-link>
 
-                    <x-nav-link :href="''" :active="request()->routeIs('account.countries.*')">
+                    <x-nav-link :href="route('account.countries.index')" :active="request()->routeIs('account.countries.*')">
                         {{ __('Countries') }}
                     </x-nav-link>
                 </div>
@@ -79,7 +79,7 @@
                 {{ __('Voters') }}
             </x-responsive-nav-link>
 
-            <x-responsive-nav-link :href="''" :active="request()->routeIs('account.countries.*')">
+            <x-responsive-nav-link :href="route('account.countries.index')" :active="request()->routeIs('account.countries.*')">
                 {{ __('Countries') }}
             </x-responsive-nav-link>
         </div>
