@@ -26,7 +26,7 @@ class CountryController extends Controller
     {
         $country = $request->store();
 
-        return redirect()->route('account.countries.show', $country);
+        return redirect()->route('account.countries.show', $country)->with('status', 'Country added successfully.');
     }
 
     public function show(Country $country): View
@@ -47,13 +47,13 @@ class CountryController extends Controller
     {
         $request->update($country);
 
-        return redirect()->route('account.countries.show', $country);
+        return redirect()->route('account.countries.show', $country)->with('status', 'Country updated successfully.');
     }
 
     public function destroy(Country $country): RedirectResponse
     {
         $country->delete();
 
-        return redirect()->route('account.countries.index');
+        return redirect()->route('account.countries.index')->with('status', 'Country deleted successfully.');
     }
 }

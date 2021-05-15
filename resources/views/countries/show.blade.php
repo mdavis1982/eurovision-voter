@@ -40,7 +40,7 @@
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <span class="text-gray-400">Information about the country to be added.</span>
+            <span class="text-gray-400">Information about the country could go here.</span>
         </div>
     </div>
 </x-app-layout>

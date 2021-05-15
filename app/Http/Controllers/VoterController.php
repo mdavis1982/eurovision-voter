@@ -26,7 +26,7 @@ class VoterController extends Controller
     {
         $voter = $request->store();
 
-        return redirect()->route('account.voters.show', $voter);
+        return redirect()->route('account.voters.show', $voter)->with('status', 'Voter added successfully.');
     }
 
     public function show(Voter $voter): View
@@ -47,13 +47,13 @@ class VoterController extends Controller
     {
         $request->update($voter);
 
-        return redirect()->route('account.voters.show', $voter);
+        return redirect()->route('account.voters.show', $voter)->with('status', 'Voter updated successfully.');
     }
 
     public function destroy(Voter $voter): RedirectResponse
     {
         $voter->delete();
 
-        return redirect()->route('account.voters.index');
+        return redirect()->route('account.voters.index')->with('status', 'Voter deleted successfully.');
     }
 }

@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Country extends Model
@@ -19,7 +20,10 @@ class Country extends Model
     ];
 
     /** -- Relationships -- */
-    // ...
+    public function votes(): HasMany
+    {
+        return $this->hasMany(Vote::class);
+    }
 
     /** -- Scopes -- */
     public function scopeCurrentlyVoting(Builder $query)

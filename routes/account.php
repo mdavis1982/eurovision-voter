@@ -3,9 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 Route::prefix('account')->name('account.')->middleware(['auth'])->group(function () {
-    Route::get('dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
+    Route::get('dashboard', App\Http\Controllers\DashboardController::class)->name('dashboard');
 
     Route::resource('voters', App\Http\Controllers\VoterController::class);
     Route::resource('countries', App\Http\Controllers\CountryController::class);
