@@ -27,6 +27,11 @@ class Voter extends Model
         return $query->whereNotNull('confirmed_at');
     }
 
+    public function scopeNotConfirmed(Builder $query)
+    {
+        return $query->whereNull('confirmed_at');
+    }
+
     /** -- Methods -- */
     public function isConfirmed(): bool
     {

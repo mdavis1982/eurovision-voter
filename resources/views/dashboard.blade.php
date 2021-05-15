@@ -1,8 +1,15 @@
 <x-app-layout title="Dashboard">
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
-        </h2>
+        <div class="flex items-center justify-between">
+            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+                {{ __('Dashboard') }}
+            </h2>
+
+            <form action="{{ route('account.send-invitations') }}" method="POST">
+                @csrf
+                <x-button>Send Invitations</x-button>
+            </form>
+        </div>
     </x-slot>
 
     <div class="py-12">
