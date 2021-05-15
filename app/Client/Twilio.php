@@ -15,10 +15,10 @@ class Twilio
         $this->client = new Client($sid, $token);
     }
 
-    public function sendSms(string $number, string $text, ?string $from = null): MessageInstance
+    public function sendSms(string $to, string $text, ?string $from = null): MessageInstance
     {
         return $this->client->messages->create(
-            $number,
+            $to,
             [
                 'body' => $text,
                 'from' => $from ?? config('services.twilio.messaging-service'),
