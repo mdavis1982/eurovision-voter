@@ -16,7 +16,9 @@ class Twilio extends Controller
     public function __invoke(Request $request, TwilioClient $twilio)
     {
         if (! $voter = Voter::with('votes')->where('number', '=', $request->From)->first()) {
-            return $twilio->sendSms($request->From, 'Sorry. You must be invited to vote. :-(');
+            $twilio->sendSms($request->From, 'Sorry. You must be invited to vote. :-(');
+
+            return;
         }
 
         if ('ok' === Str::lower($request->Body)) {
@@ -26,16 +28,22 @@ class Twilio extends Controller
         }
 
         if (0 === Country::currentlyVoting()->count()) {
-            return $twilio->sendSms($request->From, 'Sorry. Voting is currently closed. :-(');
+            $twilio->sendSms($request->From, 'Sorry. Voting is currently closed. :-(');
+
+            return;
         }
 
         if (! is_numeric($request->Body) || (int) $request->Body < 0 || (int) $request->Body > config('eurovision.voting.max')) {
-            return $twilio->sendSms($request->From, sprintf('You must vote with a value between 0 - %d. Try again.', config('eurovision.voting.max')));
+            $twilio->sendSms($request->From, sprintf('You must vote with a value between 0 - %d. Try again.', config('eurovision.voting.max')));
+
+            return;
         }
 
         $country = Country::currentlyVoting()->first();
         if ($voter->votes->where('country_id', $country->id)->isNotEmpty()) {
-            return $twilio->sendSms($request->From, "You've already voted for {$country->name}. This vote won't be counted!");
+            $twilio->sendSms($request->From, "You've already voted for {$country->name}. This vote won't be counted!");
+
+            return;
         }
 
         CastVote::dispatch($country, $voter, (int) $request->Body);

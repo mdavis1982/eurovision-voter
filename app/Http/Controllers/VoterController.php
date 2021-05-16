@@ -13,7 +13,7 @@ class VoterController extends Controller
     public function index(): View
     {
         return view('voters.index', [
-            'voters' => Voter::all(),
+            'voters' => Voter::orderBy('name')->get(),
         ]);
     }
 

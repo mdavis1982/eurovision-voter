@@ -11,9 +11,9 @@ class OpenVotingController extends Controller
 {
     public function __invoke(Country $country): RedirectResponse
     {
-        $voters = Voter::confirmed()->get();
-
         $country->openVoting();
+
+        $voters = Voter::confirmed()->get();
 
         $voters->each(function (Voter $voter) use ($country) {
             OpenVoting::dispatch($country, $voter);
